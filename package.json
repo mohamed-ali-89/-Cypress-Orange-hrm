@@ -1,0 +1,17 @@
+{
+  "name": "-cypress-orange-hrm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:record":"npx cypress run --record --key 5affb12f-25cf-4ca4-9996-b62f97242fc3",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.8.1"
+  }
+}

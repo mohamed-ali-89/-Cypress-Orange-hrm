@@ -1,0 +1,15 @@
+{
+  "resetUsernames":{
+     "validUsername": "Admin",
+     "invalidUsername": "invalidUser",
+     "emptyUsername": " "
+  }
+
+    
+
+
+
+
+
+
+}
