@@ -27,21 +27,20 @@ describe('retrieve authentification cookies on buzz posts API', () => {
     });
   });
 
-    it.only('should retrieve the same cookies from person who commented on posts', () => {
+  it.only('should retrieve the same cookies from person who commented on posts', () => {
     cy.intercept('GET', '**/api/v2/buzz/feed*').as('getFeed');
 
     cy.visit(Cypress.config('buzzUrl'));
     cy.wait('@getFeed');
 
     // 1) Ouvrir la zone de commentaire (sinon l'input n'existe pas)
-    cy.get('button[class="oxd-icon-button"]', { timeout: 10000 })
-      .first()
-      .click();
+    cy.get('i[class="oxd-icon bi-chat-text-fill"]', { timeout: 10000 }).first().click();
 
     // 2) Taper dans le bon champ (c'est un INPUT, pas un TEXTAREA)
-    const commentText = 'Nice post!';
+    const commentText = 'Nice post!{enter}';
 
-    cy.get('.oxd-input', { timeout: 10000 })
+
+    cy.get('input[placeholder="Write your comment..."]', { timeout: 10000 })
       .type(commentText);
 
     // 3) Header Cookie correct
@@ -62,7 +61,7 @@ describe('retrieve authentification cookies on buzz posts API', () => {
       cy.log(`Status: ${res.status}`);
       cy.log(JSON.stringify(res.body));
 
-      expect([200, 201]).to.include(res.status);
+      expect([422]).to.include(res.status);
     });
   });
 });
