@@ -14,4 +14,4 @@ jobs:
                 browser: chrome
                 record: true
               env:
-                CYPRESS_RECORD_KEY: 5affb12f-25cf-4ca4-9996-b62f97242fc3
+                CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
