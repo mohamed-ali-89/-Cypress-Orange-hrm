@@ -1,17 +1,16 @@
 name: End-to-end tests
 on: push
 jobs:
-    cypress-run:
-        runs-on: windows-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v6
-            # Install npm dependencies, cache them correctly
-            # and run all Cypress tests
-            - name: Cypress run
-              uses: cypress-io/github-action@v6
-              with:
-                browser: chrome
-                record: true
-              env:
-                CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  cypress-run:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
