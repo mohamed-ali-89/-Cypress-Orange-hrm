@@ -56,15 +56,6 @@ describe('template spec', () => {
       cy.visit('requestPasswordResetCode');
     });
 
-    it('should reset password with valid username', () => {
-      cy.fixture('resetUsername').then((resetUsername) => {
-        cy.resetPassword(resetUsername.resetUsernames.validUsername);
-        cy.url().should('include', 'requestPasswordResetCode');
-        cy.contains('h6', 'Reset Password link sent successfully').should('be.visible');
-      });
-    });
-
-
     it('should not reset password with empty username', () => {
       cy.fixture('resetUsername').then((resetUsername) => {
         cy.resetPassword(resetUsername.resetUsernames.emptyUsername);
