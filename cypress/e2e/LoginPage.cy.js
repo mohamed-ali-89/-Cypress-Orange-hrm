@@ -76,7 +76,7 @@ describe('template spec', () => {
       cy.fixture('resetUsername').then((resetUsername) => {
         cy.resetPassword(resetUsername.resetUsernames.invalidUsername);
         cy.url().should('include', 'sendPasswordReset');
-        cy.get('form', '[class="oxd.form"]').should('be.visible');
+        cy.contains('p', 'Note: ').should('be.visible');
       });
     });
 
