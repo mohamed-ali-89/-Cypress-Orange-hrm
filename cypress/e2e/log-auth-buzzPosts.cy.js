@@ -61,7 +61,7 @@ describe('retrieve authentification cookies on buzz posts API', () => {
       cy.log(`Status: ${res.status}`);
       cy.log(JSON.stringify(res.body));
 
-      expect([422]).to.include(res.status);
+      expect([200]).to.include(res.status);
     });
   });
 });
